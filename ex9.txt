@@ -1,0 +1,39 @@
+#include <Servo.h> 
+int POSservo = 0; 
+Servo servo_5; 
+void setup() 
+{ 
+ servo_5.attach(9); 
+} 
+void loop() 
+{ 
+ char data;
+ if(Serial.available())
+ {
+ data=Serial.read();
+ if(data=='1')
+ {
+ // It will sweep the servo from 0 to 180 degrees 
+ for (POSservo = 0; POSservo <= 180; POSservo=POSservo+1) 
+ { 
+ // tell servo to go to position in variable 'POSservo' 
+
+ servo_5.write(POSservo); 
+ Serial.print("Forward Direction");
+ // It will wait for the specified duration (20 milliseconds) to reach the position 
+ delay(20); // delay of 15 millisecond(s) 
+ } 
+ }
+ if(data=='2')
+ {
+ for (POSservo = 180; POSservo >= 0;POSservo= POSservo-1) 
+ { 
+ // It will tell servo to go to position in the declared variable 'POSservo' 
+ servo_5.write(POSservo); 
+ Serial.print("Backward Direction");
+ delay(20); 
+ // we can modify the duration as per the requirements 
+ } 
+ }
+ }
+}

@@ -1,0 +1,36 @@
+// Program for spjh.h
+int mul(int,int);
+int div(int,int);
+// Program for mul.c
+int mul(a,b){
+ return(a*b);
+}
+// Program for div.c
+ int div(c,d){
+return(c/d); 
+}
+// Program for 2a.c
+# include <stdio.h>
+ # include “spjh.h”
+ void main(){
+71812105034 – HARIKARTHIK SM
+17
+ int x;
+ int y;
+ printf(“enter x,y \n”); 
+ scanf(“%d %d”, &x,&y);
+ printf(“%d”,mul(x,y));
+ printf(“%d”,div(x,y));
+}
+
+COMMANDS :
+1. $ gcc -c mul.c
+2. $ gcc -c div.c
+3. $ gcc -c 2a.c
+4. $ ar rs libspjh.a mul.o div.o
+5. $ gcc -o 2a 2a.o libspjh.a
+6. objdump 2a.o
+7. strings 2a.o
+8. size 2a.o
+9. nm 2a.o
+10.strip 2a.o

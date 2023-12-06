@@ -1,0 +1,36 @@
+#include <Energia.h>;
+// Task Function Prototypes
+void task1();
+void task2();
+const int buttonPin = PUSH2;
+const int ledPin1 = GREEN_LED;
+const int ledPin2 = RED_LED;
+
+int buttonState = 0;
+int ledState = LOW;
+void setup() {
+// MSP430 initialization code here
+pinMode(buttonPin, INPUT_PULLUP);
+pinMode(ledPin1, OUTPUT);
+pinMode(ledPin2, OUTPUT);
+}
+void loop() {
+buttonState = digitalRead(buttonPin);
+task1(); // Call task1 repeatedly
+if (buttonState = = HIGH)
+{
+task2(); // Call task2 repeatedly
+}
+}
+void task1() {
+// Task 1 logic
+digitalWrite(ledPin1, HIGH);
+// Delay for a while
+delay(100);
+}
+void task2() {
+// Task 2 logic
+digitalWrite(ledPin2, HIGH);
+// Delay for a while
+delay(500);
+}

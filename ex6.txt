@@ -1,0 +1,26 @@
+#include<linux/module.h>
+#include<linux/kernel.h>
+#include<linuk/init.h>
+static int __init hello_start(void)
+{
+printk(KERN_INFO “Hello, I’m here to help\n”);
+return 0;
+}
+static void__exit hello_end(void)
+{
+Printk(KERN_INFO “Goodbye, I hope I was helpful\n”);
+}
+module_init(hello_start);
+module_exit(hello_end);
+
+vi hello.c
+make
+ls
+ls -l
+lsmod
+lsmod | grep hello
+sudo insmod ./hello.ko
+lsmod
+dmesg
+rmmod
+modinfo
